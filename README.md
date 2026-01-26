@@ -1,119 +1,117 @@
-# 🛍️ Digital Store — Projeto Front-end
+# 🛍️ Digital Store
 
-Este projeto é uma aplicação web desenvolvida em **React**, baseada no design oficial do **Digital Store**, seguindo fielmente os requisitos funcionais e visuais disponibilizados no Figma.
+Projeto de e-commerce **front-end** desenvolvido com **React**, focado em boas práticas de componentização, rotas, organização de pastas e experiência do usuário.
 
-O objetivo do projeto é aplicar conceitos de **componentização**, **roteamento**, **boas práticas de código**, **organização de pastas** e **fidelidade visual ao layout**.
-
----
-
-## 🎯 Objetivo do Projeto
-
-Desenvolver uma aplicação front-end completa que simule uma loja virtual, contendo:
-
-* Página Inicial (Home)
-* Página de Listagem de Produtos
-* Página de Visualização do Produto
-* Área de Conta do Usuário (Meus Pedidos, Minhas Informações, Métodos de Pagamento)
+🔗 **Deploy (Vercel):** [https://digital-store.vercel.app](https://digital-store-beta-gilt.vercel.app)
+🔗 **Repositório:** [https://github.com/samaravalentina/digital-store](https://github.com/samaravalentina/digital-store)
 
 ---
 
-## 🧩 Funcionalidades Implementadas
+## 📸 Preview
 
-* ✅ Layout global com **Header** e **Footer**
-* ✅ Campo de busca com query string (`/produtos?filter=`)
-* ✅ Navegação com **React Router DOM**
-* ✅ Listagem de produtos reutilizável
-* ✅ Página de detalhes do produto
-* ✅ Galeria de imagens com setas e thumbnails
-* ✅ Filtros e ordenação (visual)
-* ✅ Área de conta do usuário
-* ✅ Estrutura de pastas organizada
-* ✅ Estilização com **Tailwind CSS**
-* ✅ Fidelidade ao layout do Figma
+> Interface de uma loja virtual com listagem de produtos, página de detalhes, área de conta do usuário e navegação por rotas.
 
 ---
 
-## 🛠️ Tecnologias Utilizadas
+## 🚀 Tecnologias Utilizadas
 
 * **React**
-* **React Router DOM**
 * **Vite**
+* **React Router DOM v6**
 * **Tailwind CSS**
 * **JavaScript (ES6+)**
 * **Git & GitHub**
+* **Vercel (Deploy)**
+
+---
+
+## 🧩 Funcionalidades
+
+* Página inicial (Home)
+* Listagem de produtos
+* Página de detalhes do produto
+* Área do usuário (Pedidos, Informações, Métodos de pagamento)
+* Página de Login
+* Página *Not Found (404)*
+* Layout reutilizável
+* Componentes reutilizáveis
+
+> 🔹 Botões de **ordenar** e **filtrar** são apenas visuais (sem lógica aplicada).
 
 ---
 
 ## 📂 Estrutura de Pastas
 
+```bash
 src/
 ├── assets/
 ├── components/
-│ ├── Header
-│ ├── Footer
-│ ├── Layout
-│ ├── ProductCard
-│ ├── ProductListing
-│ ├── Gallery
-│ ├── BuyBox
-│ ├── Section
-│ ├── FilterGroup
-│ └── ...
+│   ├── Header/
+│   ├── Footer/
+│   ├── ProductCard/
+│   ├── ProductListing/
+│   └── ...
 ├── pages/
-│ ├── HomePage.jsx
-│ ├── ProductListingPage.jsx
-│ ├── ProductViewPage.jsx
-│ ├── AccountLayout.jsx
-│ ├── MyOrdersPage.jsx
-│ ├── MyInfoPage.jsx
-│ └── PaymentMethodsPage.jsx
+│   ├── HomePage.jsx
+│   ├── ProductListingPage.jsx
+│   ├── ProductViewPage.jsx
+│   ├── LoginPage.jsx
+│   ├── MyOrdersPage.jsx
+│   └── NotFoundPage.jsx
 ├── routes/
-│ └── AppRoutes.jsx
-├── data/
-│ └── products.js
+│   └── AppRoutes.jsx
 ├── App.jsx
 └── main.jsx
+```
 
 ---
 
 ## ▶️ Como Rodar o Projeto Localmente
 
-### 1️⃣ Clonar o repositório
 ```bash
+# Clone o repositório
 git clone https://github.com/samaravalentina/digital-store.git
+
+# Acesse a pasta do projeto
 cd digital-store
+
+# Instale as dependências
 npm install
+
+# Rode o projeto
 npm run dev
+```
+
+A aplicação ficará disponível em:
+
+```
 http://localhost:5173
-🎨 Design
+```
 
-Layout baseado no Figma oficial do Digital Store
+---
 
-Fidelidade visual priorizada
+## ☁️ Deploy
 
-Responsividade considerada
+O deploy é realizado automaticamente pela **Vercel** sempre que há um `git push` na branch `main`.
 
-🚀 Deploy
+---
 
-O deploy pode ser realizado utilizando:
-Vercel
+## 📌 Observações
 
-👩‍💻 Autoria
+* Projeto desenvolvido para fins educacionais e portfólio
+* Não possui integração com API real (dados mockados)
+* Foco em organização, rotas e UI
 
-Projeto desenvolvido por:
+---
 
-Samara Valentina da Silva
+## 👩‍💻 Autora
 
-(Projeto acadêmico — Digital College)
+**Samara Valentina da Silva**
 
-📌 Observações
+* GitHub: [https://github.com/samaravalentina](https://github.com/samaravalentina)
+* LinkedIn: *(linkedin.com/in/samara-valentina-da-silva-411115179)*
 
-As funcionalidades de ordenar e filtrar são visuais, conforme permitido no escopo do projeto.
+---
 
-O consumo de API real é opcional e não foi implementado nesta versão.
+✨ Projeto em constante evolução. Feedbacks são bem-vindos!
 
-Projeto focado em boas práticas, organização e componentização.
-
-📄 Licença
-
-Este projeto é de uso educacional.
