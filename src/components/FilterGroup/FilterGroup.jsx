@@ -6,12 +6,10 @@ export default function FilterGroup({
   return (
     <div className="flex flex-col gap-3">
 
-      {/* Título */}
       <h4 className="text-sm text-dark-gray-2 font-medium">
         {title}
       </h4>
 
-      {/* Opções */}
       <div className="flex flex-col gap-2">
         {options.map((option, index) => (
           <label

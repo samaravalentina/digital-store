@@ -23,7 +23,6 @@ export default function Gallery({
 
   return (
     <div className={className}>
-      {/* Slide */}
       <div
         className="relative overflow-hidden flex items-center justify-center"
         style={{
@@ -31,7 +30,6 @@ export default function Gallery({
           height: height ? `${height}px` : "auto",
         }}
       >
-        {/* Seta esquerda */}
         <button
           onClick={prevImage}
           disabled={isFirst}
@@ -45,7 +43,6 @@ export default function Gallery({
           />
         </button>
 
-        {/* Imagem ativa */}
         <img
           src={images[currentIndex].src}
           alt="Produto"
@@ -53,7 +50,6 @@ export default function Gallery({
           style={{ borderRadius: radius }}
         />
 
-        {/* Seta direita */}
         <button
           onClick={nextImage}
           disabled={isLast}
@@ -67,7 +63,6 @@ export default function Gallery({
         </button>
       </div>
 
-      {/* Thumbnails */}
       {showThumbs && (
         <div className="flex gap-3 mt-4">
           {images.map((image, index) => (

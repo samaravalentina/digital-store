@@ -1,15 +1,15 @@
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
+import { Outlet } from "react-router-dom";
 
-const Layout = ({ children }) => {
+export default function Layout() {
   return (
-    <div className="min-h-screen flex flex-col">
+    <>
       <Header />
-      <main className="flex-1 bg-gray-100">{children}</main>
+      <main className="min-h-screen bg-light-gray-3">
+        <Outlet />
+      </main>
       <Footer />
-    </div>
+    </>
   );
-};
-
-export default Layout;
-
+}

@@ -10,7 +10,6 @@ export default function Footer() {
     <footer className="bg-dark-gray text-white">
       <div className="max-w-7xl mx-auto px-6 py-12 grid grid-cols-1 md:grid-cols-4 gap-8">
 
-        {/* Logo + descrição + redes */}
         <div className="flex flex-col gap-4">
           <Logo color="white" />
 
@@ -32,7 +31,6 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Colunas de informações */}
         <FooterInfo
           title="Informações"
           informations={[
@@ -62,7 +60,6 @@ export default function Footer() {
         />
       </div>
 
-      {/* Linha e copyright */}
       <hr className="border-dark-gray-2" />
 
       <p className="text-center text-sm py-4">

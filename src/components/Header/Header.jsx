@@ -16,12 +16,9 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-50 bg-white shadow-sm">
       <div className="mx-auto max-w-[1440px] px-4">
-        {/* Linha superior */}
         <div className="flex items-center justify-between py-4">
-          {/* Logo */}
           <Logo />
 
-          {/* Busca */}
           <div className="relative hidden w-full max-w-md lg:block">
             <input
               type="text"
@@ -41,31 +38,29 @@ export default function Header() {
             </button>
           </div>
 
-          {/* Ações */}
           <div className="flex items-center gap-6">
-            <a
-              href="/cadastro"
+            <NavLink
+              to="/criar-conta"
               className="text-sm text-dark-gray-2 underline"
             >
               Cadastre-se
-            </a>
+            </NavLink>
 
-            <a
-              href="/login"
+            <NavLink
+              to="/login"
               className="flex h-10 w-[114px] items-center justify-center rounded bg-primary text-sm font-bold text-white"
             >
               Entrar
-            </a>
+            </NavLink>
 
             <img
               src={cartIcon}
               alt="Carrinho"
-              className="h-6 w-6 cursor-pointer"
+              className="h-6 w-6"
             />
           </div>
         </div>
 
-        {/* Navegação */}
         <nav className="flex gap-8 pb-3">
           {[
             { label: "Home", to: "/" },

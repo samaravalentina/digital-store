@@ -1,6 +1,5 @@
 import { useState } from "react";
 
-// Ajuste os caminhos se seus ícones estiverem em outra pasta
 import tshirtIcon from "../../assets/blusa.png";
 import pantsIcon from "../../assets/calca.png";
 import capIcon from "../../assets/bones.png";
@@ -41,7 +40,6 @@ export default function CollectionsHighlight({
                 className="flex flex-col items-center gap-2 outline-none"
                 aria-label={item.label}
               >
-                {/* bolinha do ícone */}
                 <span
                   className={[
                     "grid h-20 w-20 place-items-center rounded-full bg-white",

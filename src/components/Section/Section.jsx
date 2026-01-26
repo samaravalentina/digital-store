@@ -7,7 +7,6 @@ export default function Section({
   return (
     <section className="w-full max-w-7xl mx-auto px-6 my-12">
 
-      {/* Cabeçalho da seção */}
       <div
         className={`flex items-center mb-6 ${
           titleAlign === "center"
@@ -33,7 +32,6 @@ export default function Section({
         )}
       </div>
 
-      {/* Conteúdo */}
       <div>
         {children}
       </div>

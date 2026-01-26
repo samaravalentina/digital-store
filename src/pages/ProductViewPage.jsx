@@ -40,18 +40,16 @@ export default function ProductViewPage() {
   return (
     <div className="max-w-7xl mx-auto px-6 py-10">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
-        {/* Galeria */}
         <div>
           <Gallery
             images={galleryImages}
-            width={570}     // ✅ número
-            height={570}    // ✅ número
+            width={570} 
+            height={570}
             radius="8px"
             showThumbs
           />
         </div>
 
-        {/* BuyBox */}
         <div>
           <BuyBox
             name={product.name}
@@ -64,7 +62,6 @@ export default function ProductViewPage() {
             }
             description={product.description}
           >
-            {/* quando você criar ProductOptions, entra aqui */}
           </BuyBox>
         </div>
       </div>

@@ -2,6 +2,7 @@ import Section from "../components/Section/Section";
 import ProductListing from "../components/ProductListing/ProductListing";
 import CollectionsHighlight from "../components/CollectionsHighlight/CollectionsHighlight";
 
+
 import { PRODUCTS } from "../data/products";
 
 import homeSlide1 from "../assets/tenis-vermelho-nike.png";
@@ -9,15 +10,14 @@ import homeSlide1 from "../assets/tenis-vermelho-nike.png";
 import collection1 from "../assets/collection-1.png";
 import collection2 from "../assets/collection-2.png";
 import collection3 from "../assets/collection-3.png";
+import SpecialOffer from "../components/SpecialOffer/SpecialOffer";
 
 export default function HomePage() {
   return (
     <>
-      {/* HERO */}
       <section className="w-full bg-light-gray-3">
         <div className="mx-auto max-w-[1440px] px-4 py-10">
           <div className="grid items-center gap-10 lg:grid-cols-2">
-            {/* Texto */}
             <div className="max-w-xl">
               <p className="text-warning text-sm font-semibold">
                 Melhores ofertas personalizadas
@@ -37,7 +37,6 @@ export default function HomePage() {
               </button>
             </div>
 
-            {/* Imagem do tênis (posição Figma-like) */}
             <div className="relative flex justify-end">
               <img
                 src={homeSlide1}
@@ -55,7 +54,6 @@ export default function HomePage() {
             </div>
           </div>
 
-          {/* Dots */}
           <div className="mt-6 flex justify-center gap-2">
             <span className="h-2 w-2 rounded-full bg-primary" />
             <span className="h-2 w-2 rounded-full bg-light-gray-2" />
@@ -64,7 +62,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* COLEÇÕES EM DESTAQUE (cards grandes) */}
       <Section title="Coleções em destaque" titleAlign="center">
         <div className="grid gap-6 px-4 sm:grid-cols-2 lg:grid-cols-3">
           {[collection1, collection2, collection3].map((img, index) => (
@@ -87,14 +84,12 @@ export default function HomePage() {
           ))}
         </div>
       </Section>
-
-      {/* COLEÇÕES EM DESTAQUE (ícones) — igual ao Figma */}
       <CollectionsHighlight />
-
-      {/* PRODUTOS EM ALTA */}
       <Section title="Produtos em alta" titleAlign="left">
         <ProductListing products={PRODUCTS.slice(0, 8)} />
       </Section>
+
+      <SpecialOffer />
     </>
   );
 }

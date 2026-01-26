@@ -1,62 +1,82 @@
 import { useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 
-export default function ProductCard({ id, name, price, priceDiscount, image }) {
+export default function ProductCard({
+  id,
+  name,
+  price,
+  priceDiscount,
+  image,
+  category = "Tênis",
+}) {
   const navigate = useNavigate();
 
-   const hasDiscount = typeof priceDiscount === "number" && priceDiscount < price;
+  const basePrice = Number(price);
+  const salePrice =
+    typeof priceDiscount === "number" ? Number(priceDiscount) : null;
+
+  const hasDiscount = typeof salePrice === "number" && salePrice < basePrice;
 
   const discountPercent = useMemo(() => {
     if (!hasDiscount) return null;
-    return Math.round(((price - priceDiscount) / price) * 100);
-  }, [hasDiscount, price, priceDiscount]);
+    return Math.round(((basePrice - salePrice) / basePrice) * 100);
+  }, [hasDiscount, basePrice, salePrice]);
 
   return (
-    <div className="group border rounded-lg p-4 hover:shadow-lg transition-shadow duration-300 cursor-pointer bg-white"
-      onClick={() => navigate(`/produto/${id}`)}>
-      {/* Imagem com zoom no hover */}
-      <div className="relative overflow-hidden rounded-md">
-        {/* Badge de desconto */}
-        {hasDiscount && (
-          <span className="absolute top-3 left-3 z-10 bg-primary text-white text-xs font-semibold px-3 py-1 rounded-full">
-            -{discountPercent}%
-          </span>
-        )}
+    <div
+      className="w-full max-w-[292px] cursor-pointer"
+      onClick={() => navigate(`/produto/${id}`)}
+    >
+      <div className="bg-white rounded-lg shadow-sm">
+        <div className="relative p-6">
+          {hasDiscount && (
+            <span className="absolute top-4 left-4 bg-[#E7FF86] text-dark-gray text-xs font-semibold px-3 py-1 rounded-full">
+              {discountPercent}% OFF
+            </span>
+          )}
 
-        <img
-          src={image}
-          alt={name}
-          className="w-full h-64 object-cover rounded-md transform transition-transform duration-300 group-hover:scale-105"
-          loading="lazy"
-        />
+          <div className="h-[321px] flex items-center justify-center">
+            <img
+              src={image}
+              alt={name}
+              className="max-h-[260px] w-auto object-contain"
+              loading="lazy"
+            />
+          </div>
+        </div>
       </div>
 
-      <h2 className="mt-4 text-lg font-semibold text-dark-gray">{name}</h2>
+      <div className="mt-4">
+        <p className="text-xs text-light-gray">{category}</p>
 
-      <div className="mt-2 flex items-center gap-2">
-        {hasDiscount ? (
-          <>
-            <p className="text-light-gray line-through">
-              {price.toLocaleString("pt-BR", {
+        <h2 className="mt-1 text-base text-dark-gray-2">{name}</h2>
+
+        <div className="mt-2 flex items-baseline gap-2">
+          {hasDiscount ? (
+            <>
+              <span className="text-sm text-light-gray line-through">
+                {basePrice.toLocaleString("pt-BR", {
+                  style: "currency",
+                  currency: "BRL",
+                })}
+              </span>
+
+              <span className="text-lg font-bold text-dark-gray">
+                {salePrice.toLocaleString("pt-BR", {
+                  style: "currency",
+                  currency: "BRL",
+                })}
+              </span>
+            </>
+          ) : (
+            <span className="text-lg font-bold text-dark-gray">
+              {basePrice.toLocaleString("pt-BR", {
                 style: "currency",
                 currency: "BRL",
               })}
-            </p>
-            <p className="text-dark-gray font-bold">
-              {priceDiscount.toLocaleString("pt-BR", {
-                style: "currency",
-                currency: "BRL",
-              })}
-            </p>
-          </>
-        ) : (
-          <p className="text-dark-gray font-bold">
-            {price.toLocaleString("pt-BR", {
-              style: "currency",
-              currency: "BRL",
-            })}
-          </p>
-        )}
+            </span>
+          )}
+        </div>
       </div>
     </div>
   );
