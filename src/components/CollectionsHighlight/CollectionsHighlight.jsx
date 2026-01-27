@@ -22,13 +22,13 @@ export default function CollectionsHighlight({
   const [activeId, setActiveId] = useState(defaultActiveId);
 
   return (
-    <section className="mx-auto max-w-[1440px] px-4 py-10">
+    <section className="mx-auto max-w-[1440px] px-4 py-8 sm:py-10">
       <h2 className="text-center text-sm font-semibold text-dark-gray-2">
         {title}
       </h2>
 
-      <div className="mt-6 flex justify-center">
-        <div className="flex w-full max-w-[712px] items-center justify-between gap-6">
+      <div className="mt-6 -mx-4 px-4 overflow-x-auto sm:mx-0 sm:px-0 sm:overflow-visible">
+        <div className="flex w-max gap-4 sm:w-full sm:max-w-[712px] sm:mx-auto sm:justify-between sm:gap-6">
           {items.map((item) => {
             const isActive = item.id === activeId;
 
@@ -37,21 +37,23 @@ export default function CollectionsHighlight({
                 key={item.id}
                 type="button"
                 onClick={() => setActiveId(item.id)}
-                className="flex flex-col items-center gap-2 outline-none"
+                className="flex shrink-0 flex-col items-center gap-2 outline-none"
                 aria-label={item.label}
               >
                 <span
                   className={[
-                    "grid h-20 w-20 place-items-center rounded-full bg-white",
-                    "border border-light-gray-3",
-                    isActive ? "text-primary" : "text-light-gray",
+                    "grid h-16 w-16 sm:h-20 sm:w-20 place-items-center rounded-full bg-white",
+                    "border transition",
+                    isActive
+                      ? "border-primary shadow-sm"
+                      : "border-light-gray-3",
                   ].join(" ")}
                 >
                   <img
                     src={item.icon}
                     alt=""
                     className={[
-                      "h-10 w-10",
+                      "h-8 w-8 sm:h-10 sm:w-10 transition",
                       isActive ? "opacity-100" : "opacity-70",
                     ].join(" ")}
                   />

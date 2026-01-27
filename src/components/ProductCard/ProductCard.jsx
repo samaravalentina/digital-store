@@ -22,46 +22,55 @@ export default function ProductCard({
     return Math.round(((basePrice - salePrice) / basePrice) * 100);
   }, [hasDiscount, basePrice, salePrice]);
 
+  function goToProduct() {
+    navigate(`/produto/${id}`);
+  }
+
   return (
     <div
-      className="w-full max-w-[292px] cursor-pointer"
-      onClick={() => navigate(`/produto/${id}`)}
+      role="button"
+      tabIndex={0}
+      onClick={goToProduct}
+      onKeyDown={(e) => (e.key === "Enter" || e.key === " " ? goToProduct() : null)}
+      className="w-full cursor-pointer outline-none"
     >
-      <div className="bg-white rounded-lg shadow-sm">
-        <div className="relative p-6">
+      <div className="bg-white rounded-lg shadow-sm transition hover:shadow-md focus-within:ring-2 focus-within:ring-primary/30">
+        <div className="relative p-4 sm:p-6">
           {hasDiscount && (
-            <span className="absolute top-4 left-4 bg-[#E7FF86] text-dark-gray text-xs font-semibold px-3 py-1 rounded-full">
+            <span className="absolute left-3 top-3 sm:left-4 sm:top-4 bg-[#E7FF86] text-dark-gray text-xs font-semibold px-3 py-1 rounded-full">
               {discountPercent}% OFF
             </span>
           )}
 
-          <div className="h-[321px] flex items-center justify-center">
+          <div className="flex items-center justify-center h-[180px] sm:h-[240px] lg:h-[280px]">
             <img
               src={image}
               alt={name}
-              className="max-h-[260px] w-auto object-contain"
+              className="max-h-[150px] sm:max-h-[200px] lg:max-h-[230px] w-auto object-contain"
               loading="lazy"
             />
           </div>
         </div>
       </div>
 
-      <div className="mt-4">
+      <div className="mt-3 sm:mt-4">
         <p className="text-xs text-light-gray">{category}</p>
 
-        <h2 className="mt-1 text-base text-dark-gray-2">{name}</h2>
+        <h2 className="mt-1 text-sm sm:text-base text-dark-gray-2 line-clamp-2">
+          {name}
+        </h2>
 
-        <div className="mt-2 flex items-baseline gap-2">
+        <div className="mt-2 flex flex-wrap items-baseline gap-x-2 gap-y-1">
           {hasDiscount ? (
             <>
-              <span className="text-sm text-light-gray line-through">
+              <span className="text-xs sm:text-sm text-light-gray line-through">
                 {basePrice.toLocaleString("pt-BR", {
                   style: "currency",
                   currency: "BRL",
                 })}
               </span>
 
-              <span className="text-lg font-bold text-dark-gray">
+              <span className="text-base sm:text-lg font-bold text-dark-gray">
                 {salePrice.toLocaleString("pt-BR", {
                   style: "currency",
                   currency: "BRL",
@@ -69,7 +78,7 @@ export default function ProductCard({
               </span>
             </>
           ) : (
-            <span className="text-lg font-bold text-dark-gray">
+            <span className="text-base sm:text-lg font-bold text-dark-gray">
               {basePrice.toLocaleString("pt-BR", {
                 style: "currency",
                 currency: "BRL",

@@ -1,15 +1,21 @@
+import { Outlet, useLocation } from "react-router-dom";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
-import { Outlet } from "react-router-dom";
 
 export default function Layout() {
+  const { pathname } = useLocation();
+  const isAuthPage =
+    pathname.startsWith("/login") ||
+    pathname.startsWith("/create-account") ||
+    pathname.startsWith("/register");
+
   return (
     <>
-      <Header />
-      <main className="min-h-screen bg-light-gray-3">
-        <Outlet />
-      </main>
-      <Footer />
+      {!isAuthPage && <Header />}
+
+      <Outlet />
+
+      {!isAuthPage && <Footer />}
     </>
   );
 }

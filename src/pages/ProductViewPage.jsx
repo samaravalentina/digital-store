@@ -17,7 +17,7 @@ export default function ProductViewPage() {
 
   if (!product) {
     return (
-      <div className="max-w-7xl mx-auto px-6 py-10">
+      <div className="mx-auto w-full max-w-6xl px-4 py-6 lg:py-10">
         <h1 className="text-2xl font-semibold text-dark-gray-2">
           Produto não encontrado
         </h1>
@@ -38,19 +38,31 @@ export default function ProductViewPage() {
       : [{ src: product.image }];
 
   return (
-    <div className="max-w-7xl mx-auto px-6 py-10">
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
-        <div>
+    <div className="mx-auto w-full max-w-6xl px-4 py-6 lg:py-10">
+      <div className="mb-4 text-sm text-dark-gray-3">
+        <Link to="/" className="hover:underline">
+          Home
+        </Link>{" "}
+        <span>/</span>{" "}
+        <Link to="/produtos" className="hover:underline">
+          Produtos
+        </Link>{" "}
+        <span>/</span>{" "}
+        <span className="text-dark-gray-2">{product.name}</span>
+      </div>
+
+      <div className="grid grid-cols-1 gap-6 lg:grid-cols-2 lg:gap-10">
+        <div className="w-full">
           <Gallery
             images={galleryImages}
-            width={570} 
+            width={570}
             height={570}
             radius="8px"
             showThumbs
           />
         </div>
 
-        <div>
+        <div className="w-full">
           <BuyBox
             name={product.name}
             reference={product.reference}
@@ -61,12 +73,11 @@ export default function ProductViewPage() {
               product.priceDiscount != null ? Number(product.priceDiscount) : null
             }
             description={product.description}
-          >
-          </BuyBox>
+          />
         </div>
       </div>
 
-      <div className="mt-14">
+      <div className="mt-10 lg:mt-14">
         <Section title="Você também pode gostar" titleAlign="left">
           <p className="text-dark-gray-3">
             Depois colocamos produtos relacionados aqui 😉
