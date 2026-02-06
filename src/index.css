@@ -12,3 +12,52 @@
     @apply bg-white text-dark-gray;
   }
 }
+
+/* --- Swiper (carrossel) - igual ao Figma --- */
+.swiper {
+  width: 100%;
+}
+
+/* setas */
+.swiper-button-prev,
+.swiper-button-next {
+  @apply h-10 w-10 text-dark-gray-2;
+  background: transparent;
+  border: none;
+}
+
+.swiper-button-prev:hover,
+.swiper-button-next:hover {
+  @apply bg-light-gray-3;
+}
+
+.swiper-button-prev::after,
+.swiper-button-next::after {
+  font-size: 14px;
+  font-weight: 700;
+}
+
+/* bolinhas (embaixo e centralizadas) */
+.swiper-pagination {
+  position: static !important;
+  margin-top: 1.5rem !important;
+  text-align: center;
+}
+
+.swiper-pagination-bullet {
+  @apply bg-light-gray-2 opacity-100;
+  width: 8px;
+  height: 8px;
+}
+
+.swiper-pagination-bullet-active {
+  @apply bg-primary;
+}
+
+/* setas só no desktop (igual ao figma: no mobile fica swipe + bolinhas) */
+@media (max-width: 639px) {
+  .swiper-button-prev,
+  .swiper-button-next {
+    display: none !important;
+  }
+}

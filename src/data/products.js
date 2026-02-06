@@ -1,7 +1,7 @@
 import p1 from "../assets/product-thumb-1.jpeg";
 import p2 from "../assets/product-thumb-2.jpeg";
 import p3 from "../assets/product-thumb-3.jpeg";
-import p4 from "../assets/product-thumb-4.jpeg";
+import p4 from "../assets/product-thumb-6.jpeg";
 
 function with30Off(price) {
   const base = Number(price);
