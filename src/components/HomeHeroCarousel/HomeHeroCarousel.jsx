@@ -12,12 +12,11 @@ export default function HomeHeroCarousel({ slides = [] }) {
     <section className="w-full bg-light-gray-3">
       <div className="mx-auto max-w-[1440px] px-4 py-8 sm:py-10 lg:py-12">
         <Swiper
-          modules={[Autoplay, Navigation, Pagination, A11y]}
+          modules={[Autoplay, Pagination, A11y]}
           loop
           speed={500}
-          autoplay={{ delay: 5000, disableOnInteraction: false, pauseOnMouseEnter: true, enabled: true }}
+          autoplay={{ delay: 5000, disableOnInteraction: false, enabled: true }}
           pagination={{ clickable: true }}
-          navigation
           className="w-full"
         >
           {slides.map((slide, idx) => (
