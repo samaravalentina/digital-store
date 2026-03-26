@@ -7,12 +7,6 @@ Projeto de e-commerce **front-end** desenvolvido com **React**, focado em boas p
 
 ---
 
-## 📸 Preview
-
-> Interface de uma loja virtual com listagem de produtos, página de detalhes, área de conta do usuário e navegação por rotas.
-
----
-
 ## 🚀 Tecnologias Utilizadas
 
 * **React**
